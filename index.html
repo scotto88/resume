@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott Owens — Senior Systems Engineer &amp; Cybersecurity Specialist</title>
+<meta name="description" content="Resume of Scott Owens — Senior Systems Engineer and Cybersecurity Specialist with 20+ years securing and optimizing enterprise infrastructure.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F1F3F5;
+    --bg-alt:#E4E8EB;
+    --card:#FFFFFF;
+    --ink:#14202B;
+    --ink-soft:#3A4754;
+    --muted:#5B6B79;
+    --blue:#2C5F8A;
+    --blue-tint:rgba(44,95,138,0.08);
+    --amber:#B8741C;
+    --amber-tint:rgba(184,116,28,0.12);
+    --line:#C7CDD2;
+    --shadow:0 1px 2px rgba(20,32,43,0.04), 0 8px 24px rgba(20,32,43,0.05);
+    --radius:10px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --font-body:'IBM Plex Sans', sans-serif;
+  }
+
+  [data-theme="dark"]{
+    --bg:#0E1620;
+    --bg-alt:#121C27;
+    --card:#16212C;
+    --ink:#E7EDF2;
+    --ink-soft:#C3CDD6;
+    --muted:#8696A3;
+    --blue:#6FA8D6;
+    --blue-tint:rgba(111,168,214,0.10);
+    --amber:#E0A23D;
+    --amber-tint:rgba(224,162,61,0.14);
+    --line:#26323F;
+    --shadow:0 1px 2px rgba(0,0,0,0.3), 0 8px 28px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    transition:background 0.25s ease, color 0.25s ease;
+  }
+
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  a{color:var(--blue); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  h1,h2,h3{font-family:var(--font-display); margin:0; color:var(--ink);}
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    font-weight:500;
+  }
+
+  /* ---------- Theme toggle ---------- */
+  .theme-toggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:7px 14px 7px 11px;
+    cursor:pointer;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    box-shadow:var(--shadow);
+    transition:background 0.25s ease, border-color 0.25s ease;
+  }
+  .theme-toggle svg{width:15px; height:15px; stroke:var(--amber); fill:none; stroke-width:1.8;}
+  .theme-toggle:hover{border-color:var(--blue);}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding:88px 0 36px;
+    border-bottom:1px solid var(--line);
+  }
+  header.hero .eyebrow{display:block; margin-bottom:14px;}
+  header.hero h1{
+    font-size:clamp(34px, 5.2vw, 50px);
+    font-weight:700;
+    letter-spacing:-0.01em;
+  }
+  header.hero .role{
+    font-family:var(--font-display);
+    font-size:18px;
+    font-weight:500;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+  .contact-row{
+    margin-top:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px 22px;
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--muted);
+  }
+  .contact-row a{color:var(--muted); display:inline-flex; align-items:center; gap:6px;}
+  .contact-row a:hover{color:var(--blue);}
+  .contact-row svg{width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:1.8;}
+
+  .summary{
+    margin-top:24px;
+    max-width:680px;
+    color:var(--ink-soft);
+    font-size:15.5px;
+  }
+
+  /* ---------- KPI strip ---------- */
+  .kpi-strip{
+    margin-top:34px;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .kpi{
+    background:var(--card);
+    padding:18px 16px;
+  }
+  .kpi .num{
+    font-family:var(--font-mono);
+    font-size:24px;
+    font-weight:600;
+    color:var(--amber);
+    display:block;
+  }
+  .kpi .label{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:4px;
+    line-height:1.35;
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:54px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{margin-bottom:28px;}
+  .section-head h2{font-size:22px; font-weight:600;}
+  .section-head .eyebrow{margin-bottom:8px;}
+
+  /* ---------- Skills ---------- */
+  .skill-group{margin-bottom:22px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group .group-label{
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:10px;
+    display:block;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    padding:6px 11px;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--ink-soft);
+    background:var(--bg-alt);
+  }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline{position:relative; padding-left:28px;}
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background:var(--line);
+  }
+  .job{position:relative; margin-bottom:38px;}
+  .job:last-child{margin-bottom:0;}
+  .job .dot{
+    position:absolute;
+    left:-28px; top:5px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--card);
+    border:2px solid var(--muted);
+  }
+  .job.current .dot{
+    background:var(--amber);
+    border-color:var(--amber);
+    box-shadow:0 0 0 4px var(--amber-tint);
+  }
+  .job-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:6px 16px;
+  }
+  .job-title{font-family:var(--font-display); font-size:17px; font-weight:600;}
+  .job-dates{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .job-meta{
+    font-size:13.5px;
+    color:var(--muted);
+    margin-top:2px;
+  }
+  .job.current .job-meta .status{
+    color:var(--amber);
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    border:1px solid var(--amber);
+    border-radius:4px;
+    padding:1px 6px;
+    margin-left:8px;
+  }
+  .job ul{
+    margin:12px 0 0;
+    padding-left:18px;
+    color:var(--ink-soft);
+    font-size:14.5px;
+  }
+  .job li{margin-bottom:6px;}
+  .job li:last-child{margin-bottom:0;}
+
+  /* ---------- Earlier career ---------- */
+  .earlier-list{display:flex; flex-direction:column; gap:14px;}
+  .earlier-item{
+    font-size:13.5px;
+    color:var(--muted);
+    padding-bottom:14px;
+    border-bottom:1px solid var(--line);
+  }
+  .earlier-item:last-child{border-bottom:none; padding-bottom:0;}
+  .earlier-item .role{color:var(--ink-soft); font-weight:600; font-family:var(--font-body);}
+  .earlier-item .dates{font-family:var(--font-mono); font-size:12px; color:var(--muted);}
+
+  /* ---------- Education ---------- */
+  .ed-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .ed-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+  }
+  .ed-card .degree{font-family:var(--font-display); font-weight:600; font-size:15.5px;}
+  .ed-card .school{color:var(--ink-soft); font-size:13.5px; margin-top:6px;}
+  .ed-card .meta{font-family:var(--font-mono); font-size:12px; color:var(--muted); margin-top:8px;}
+
+  /* ---------- Honors ---------- */
+  .honor-list{display:flex; flex-direction:column; gap:10px;}
+  .honor{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .honor svg{width:13px; height:13px; stroke:var(--amber); fill:none; stroke-width:2; flex-shrink:0; margin-top:3px;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:44px 0 60px;
+    text-align:center;
+  }
+  footer .eyebrow{display:block; margin-bottom:16px;}
+  .footer-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:22px;
+  }
+  .btn{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:9px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    background:var(--card);
+    cursor:pointer;
+  }
+  .btn:hover{border-color:var(--blue); color:var(--blue); text-decoration:none;}
+  .btn svg{width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.8;}
+  footer .fine{font-size:12px; color:var(--muted);}
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:680px){
+    .wrap{padding:0 20px;}
+    header.hero{padding:96px 0 30px;}
+    .kpi-strip{grid-template-columns:repeat(2, 1fr);}
+    .ed-grid{grid-template-columns:1fr;}
+    .job-head{flex-direction:column; align-items:flex-start;}
+  }
+
+  /* ---------- Print ---------- */
+  @media print{
+    .theme-toggle, footer{display:none;}
+    body{background:#fff; color:#000;}
+    section + section{border-top:1px solid #ccc;}
+    .kpi .num, .eyebrow, .job.current .dot{color:#000 !important; border-color:#000 !important; background:#000 !important;}
+    a{color:#000; text-decoration:underline;}
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+  <svg id="iconSun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M19 19l-1.5-1.5M5 19l1.5-1.5M19 5l-1.5 1.5"/></svg>
+  <svg id="iconMoon" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3a7 7 0 0 0 9.5 9.5z"/></svg>
+  <span id="themeLabel">Dark</span>
+</button>
+
+<div class="wrap">
+
+  <header class="hero reveal">
+    <span class="eyebrow">Systems Engineering / Cybersecurity</span>
+    <h1>Scott Owens</h1>
+    <div class="role">Senior Systems Engineer &amp; Cybersecurity Specialist</div>
+
+    <div class="contact-row">
+      <span>Brandon, MS</span>
+      <a href="tel:+16019064850">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        601.906.4850
+      </a>
+      <a href="mailto:scottowens77@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        scottowens77@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/richard-scott-owens/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+
+    <p class="summary">Results-oriented IT Security Administrator and Systems Engineer with over 20 years of experience securing and optimizing complex enterprise infrastructures. Expert in bridging network operations and cybersecurity, with specialized proficiency in Azure cloud environments, next-generation firewalls, and vulnerability management. Proven track record of minimizing downtime, leading disaster recovery planning, and implementing robust security frameworks across government and corporate sectors.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi"><span class="num">20+</span><span class="label">Years in enterprise IT &amp; security</span></div>
+      <div class="kpi"><span class="num">100%</span><span class="label">HIPAA compliance maintained</span></div>
+      <div class="kpi"><span class="num">100%</span><span class="label">MFA adoption achieved</span></div>
+      <div class="kpi"><span class="num">99.9%</span><span class="label">Exchange uptime maintained</span></div>
+    </div>
+  </header>
+
+  <section class="reveal" id="skills">
+    <div class="section-head">
+      <span class="eyebrow">Capabilities</span>
+      <h2>Technical Skills</h2>
+    </div>
+
+    <div class="skill-group">
+      <span class="group-label">Security Operations</span>
+      <div class="chip-row">
+        <span class="chip">Vulnerability Management</span>
+        <span class="chip">Patch Management</span>
+        <span class="chip">Endpoint Detection &amp; Response (EDR)</span>
+        <span class="chip">Network Security</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="group-label">Identity &amp; Cloud</span>
+      <div class="chip-row">
+        <span class="chip">Identity &amp; Access Management (IAM)</span>
+        <span class="chip">Mobile Device Management (MDM)</span>
+        <span class="chip">Cloud Security (Azure)</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="group-label">Infrastructure</span>
+      <div class="chip-row">
+        <span class="chip">Server Infrastructure &amp; Networking</span>
+        <span class="chip">Virtualization Management</span>
+        <span class="chip">Task Automation</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <span class="group-label">Governance &amp; Resilience</span>
+      <div class="chip-row">
+        <span class="chip">Business Continuity &amp; Disaster Recovery (BCDR)</span>
+        <span class="chip">Governance, Risk &amp; Compliance (GRC)</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="experience">
+    <div class="section-head">
+      <span class="eyebrow">Career History</span>
+      <h2>Professional Experience</h2>
+    </div>
+
+    <div class="timeline">
+
+      <div class="job current">
+        <span class="dot"></span>
+        <div class="job-head">
+          <span class="job-title">IT Security Systems Administrator</span>
+          <span class="job-dates">March 2024 — Present</span>
+        </div>
+        <div class="job-meta">Community Care Partners · Lafayette, LA (Remote) <span class="status">Active</span></div>
+        <ul>
+          <li>Orchestrate endpoint security and threat detection using SentinelOne, Darktrace, and Conceal Security Service Edge (SSE) to identify and neutralize breaches.</li>
+          <li>Conduct vulnerability assessments via Tenable Nessus and RoboShadow; manage digital risk protection through ReliaQuest GreyMatter.</li>
+          <li>Administer identity and access management (IAM) via Microsoft Entra ID and Intune, ensuring secure device compliance across the remote workforce and executing phishing simulations via KnowBe4.</li>
+          <li>Streamline fleet management using ConnectWise Automate (RMM/PSA) and PowerShell scripting; secure network data transmission via Cisco Meraki.</li>
+          <li>Administer Microsoft 365 Security configurations, implementing threat protection policies against phishing, data exfiltration, and malicious activity.</li>
+          <li>Conduct periodic HIPAA Security Rule audits, assessing administrative and technical safeguards to maintain 100% compliance with ePHI protection standards.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <span class="dot"></span>
+        <div class="job-head">
+          <span class="job-title">Senior Network Administrator</span>
+          <span class="job-dates">March 2020 — March 2024</span>
+        </div>
+        <div class="job-meta">Mississippi Lottery Corporation · Flowood, MS</div>
+        <ul>
+          <li>Architected secure Microsoft Azure cloud infrastructure and Exchange Online; deployed Palo Alto NGFWs and Cortex XDR for automated threat response.</li>
+          <li>Achieved 100% adoption of Cisco Duo MFA and hardened M365 environments to mitigate risk to critical state operations.</li>
+          <li>Directed IT vendor contracts, procurement, and service agreements while supervising the Help Desk team, ensuring cost-effective, seamless support operations.</li>
+          <li>Layered endpoint and cloud threat protection by managing Cylance and Check Point Harmony (M365 email, SharePoint, and OneDrive) alongside Cortex XDR.</li>
+          <li>Designed disaster recovery strategy using EMC Avamar/Data Domain, maintained virtualized environments via VMware, and oversaw physical facility resilience, including backup generator testing.</li>
+          <li>Managed Microsoft Intune for MDM and Conditional Access policies while configuring enterprise Cisco switching and VLAN segmentation to support secure, high-performing operations.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <span class="dot"></span>
+        <div class="job-head">
+          <span class="job-title">Systems Manager</span>
+          <span class="job-dates">August 2017 — February 2020</span>
+        </div>
+        <div class="job-meta">Mississippi Department of Finance and Administration · Jackson, MS</div>
+        <ul>
+          <li>Led the Helpdesk Support Team for a workforce of 500+ employees, overseeing daily operations, technician scheduling, and ticket escalation.</li>
+          <li>Managed hardware lifecycle via Microsoft SCCM and maintained 99.9% uptime for Microsoft Exchange communications.</li>
+          <li>Administered VMware virtual infrastructure and implemented Veeam Backup &amp; Replication, ensuring 100% data recoverability for critical state systems.</li>
+          <li>Managed secure print operations for state financial disbursements, overseeing dual high-volume Xerox production printers and pressure sealers.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <span class="dot"></span>
+        <div class="job-head">
+          <span class="job-title">Lead Systems Administrator</span>
+          <span class="job-dates">2013 — July 2017</span>
+        </div>
+        <div class="job-meta">Mississippi Department of Finance and Administration · Jackson, MS</div>
+        <ul>
+          <li>Promoted to lead the systems administration function for a multi-domain Windows Server environment, managing Active Directory, Group Policy Objects (GPO), and SCCM for endpoint lifecycle.</li>
+          <li>Architected a multi-layer backup strategy using EMC NetWorker, Data Domain, ExaGrid, and Veeam, ensuring redundant data protection for physical and virtual workloads.</li>
+          <li>Served as Agency Webmaster, designing and maintaining the public-facing website using Dreamweaver, HTML, and CSS to ensure consistent branding and intuitive navigation.</li>
+          <li>Managed high-availability VMware clusters and hardened the network perimeter using Cisco ASA and FortiNet firewalls.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <span class="dot"></span>
+        <div class="job-head">
+          <span class="job-title">Senior Systems Administrator</span>
+          <span class="job-dates">January 2012 — 2013</span>
+        </div>
+        <div class="job-meta">Mississippi Department of Finance and Administration · Jackson, MS</div>
+        <ul>
+          <li>Administered core Windows Server infrastructure, including Active Directory, DNS, DHCP, and File Services, supporting agency-wide operations.</li>
+          <li>Managed Cisco IronPort and FortiNet FortiMail appliances for web and email content security filtering.</li>
+          <li>Supported the VMware virtual server environment and EMC NetWorker backup operations for physical and virtual workloads.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="reveal" id="earlier">
+    <div class="section-head">
+      <span class="eyebrow">Before 2012</span>
+      <h2>Earlier Career</h2>
+    </div>
+    <div class="earlier-list">
+      <div class="earlier-item">
+        <span class="role">Help Desk Analyst (Part-Time)</span> — Hudson's Bay Company, Jackson, MS <span class="dates">(2015–2016)</span><br>
+        Monitored network circuits and switches for outages, resolved IT Help Desk trouble tickets, and supported associates with system issues, including facilitating conference bridges for IT-related incidents.
+      </div>
+      <div class="earlier-item">
+        <span class="role">Systems Administrator</span> — Mississippi Department of Education, Jackson, MS <span class="dates">(2009–2011)</span><br>
+        Administered Active Directory, Novell e-Directory, Citrix XenApp, and enterprise email/backup systems supporting agency-wide operations.
+      </div>
+      <div class="earlier-item">
+        <span class="role">Help Desk Analyst (Tier 2)</span> — Comcast Cable Communications, Madison, MS <span class="dates">(2008–2009)</span><br>
+        Resolved escalated connectivity and infrastructure issues while consistently meeting SLA targets.
+      </div>
+      <div class="earlier-item">
+        <span class="role">Help Desk Analyst</span> — Integrity Online <span class="dates">(2006–2008)</span><br>
+        Supported dial-up and DSL provisioning, email configuration, and technical troubleshooting for clients across multiple carriers and ISPs.
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="education">
+    <div class="section-head">
+      <span class="eyebrow">Background</span>
+      <h2>Education</h2>
+    </div>
+    <div class="ed-grid">
+      <div class="ed-card">
+        <div class="degree">Bachelor of Applied Science, Cybersecurity</div>
+        <div class="school">University of Southern Mississippi</div>
+        <div class="meta">GPA 4.0 · December 2025</div>
+      </div>
+      <div class="ed-card">
+        <div class="degree">Associate of Arts, General Studies</div>
+        <div class="school">Hinds Community College</div>
+        <div class="meta">May 2018</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="honors">
+    <div class="section-head">
+      <span class="eyebrow">Recognition</span>
+      <h2>Honors &amp; Certifications</h2>
+    </div>
+    <div class="honor-list">
+      <div class="honor"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Summa Cum Laude — University of Southern Mississippi (December 2025)</div>
+      <div class="honor"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> President's List — University of Southern Mississippi (August 2025)</div>
+      <div class="honor"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Phi Kappa Phi Honor Society (May 2025)</div>
+      <div class="honor"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Palo Alto Networks Certified Network Security Administrator (PCNSA) — 2022</div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <span class="eyebrow">Get In Touch</span>
+    <div class="footer-links">
+      <a class="btn" href="mailto:scottowens77@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> Email
+      </a>
+      <a class="btn" href="tel:+16019064850">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/richard-scott-owens/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> LinkedIn
+      </a>
+      <button class="btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg> Print / Save PDF
+      </button>
+    </div>
+    <div class="fine">Brandon, MS — Open to opportunities in systems engineering &amp; cybersecurity.</div>
+  </footer>
+
+</div>
+
+<script>
+  // Theme toggle (in-memory only)
+  const toggle = document.getElementById('themeToggle');
+  const iconSun = document.getElementById('iconSun');
+  const iconMoon = document.getElementById('iconMoon');
+  const label = document.getElementById('themeLabel');
+
+  toggle.addEventListener('click', () => {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    iconSun.style.display = isDark ? 'block' : 'none';
+    iconMoon.style.display = isDark ? 'none' : 'block';
+    label.textContent = isDark ? 'Dark' : 'Light';
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
